@@ -1,0 +1,104 @@
+1. Check laravel version:
+	php artisan --version
+2. Generate new APP_KEY:
+	php artisan key:generate
+3. Run the server
+	php artisan serve
+4. Make user authentication:
+	php artisan make:auth
+5. Run the migration to create user table:
+	php artisan migrate
+6. Error because of length, update app/providers/AppServiceProvider.php:
+
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+         Schema::defaultStringLength(191);
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+}
+
+7. Rerun the migration to create user table:
+	php artisan migrate
+8. To create new migration for new tables, run the command:
+	php artisan make:migration create_tableName_table
+9. Edit the file in the database/migrations folder to create the database.
+10. Run:
+	php artisan migrate
+11. To edit/add new colums, add new schema in the migration and user table instead of create:
+	 if(!Schema::hasTable('users')){
+		Schema::table('users', function (Blueprint $table) {});
+	}
+12. To create new model, run the command:
+	php artisan make:model ModelName
+13. Edit the model under app/ folder and add the fillable fields:
+
+	protected $fillable = [
+    		'body', 'url', 'user_id', 'commentable_id', 'commentable_type'
+    	];
+
+14. Specify relationships in the model, make a function and define the relationship. Ex. User model:
+
+	public function comments(){
+        return $this->hasMany('App/Comment');
+    }
+
+    public function role(){
+        return $this->belongsTo('App/Role');
+    }
+
+    public function companies(){
+        return $this->hasMany('App/Company');
+    }
+
+    public function tasks(){
+        return $this->belongsToMany('App/Task');
+    }
+
+    public function projects(){
+        return $this->belongsToMany('App/Project');
+    }
+15. To create new controller, run the command:
+	php artisan make:controller ControllerNameController --resource
+Names must be plural and --resource created the deafult methods.
+
+or 
+
+php artisan make:controller ControllerNameController --resource --model=Company
+
+16. Since we created our controller with --resource flag, to create routes, we edit the file routes/web.php and add the routes.
+	Route::resource('companies','CompaniesController');
+Route::resource('projects','ProjectsController');
+Route::resource('tasks','TasksController');
+Route::resource('users','UsersController');
+Route::resource('roles','RolesController');
+Route::resource('comments','CommentsController');
+
+17. Create the view in the resources/views folder
+
+6:26 PM 1/15/2018 
+
+
+	
