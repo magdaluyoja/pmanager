@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+<<<<<<< HEAD
 use App\Company;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+=======
+use Illuminate\Http\Request;
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
 
 class ProjectsController extends Controller
 {
@@ -16,12 +20,16 @@ class ProjectsController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         if( Auth::check() ){
             //$projects = Project::all();//retrieve all rows in the Project table
             $projects = Project::where('user_id', Auth::user()->id)->get();
             return view('projects.index', ['projects'=>$projects]);
         }
         return view('auth.login');
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -29,6 +37,7 @@ class ProjectsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+<<<<<<< HEAD
     public function create($company_id=null)
     {
         
@@ -38,6 +47,11 @@ class ProjectsController extends Controller
             $disabled = 'disabled';
         }
         return view('projects.create', ['company_id'=>$company_id, 'company'=>$company, 'disabled'=>$disabled]);
+=======
+    public function create()
+    {
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -48,6 +62,7 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         if(Auth::check()){
             $project = Project::create([
                 'name' => $request->input('name'),
@@ -63,6 +78,9 @@ class ProjectsController extends Controller
         }
         
         return back()->withInput()->with('errors', 'Error creating new project');
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -73,9 +91,13 @@ class ProjectsController extends Controller
      */
     public function show(Project $project)
     {
+<<<<<<< HEAD
         $project = Project::find($project->id);
         $comments = $project->comments;
         return view('projects.show', ['project'=>$project, 'comments'=> $comments ]);
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -86,8 +108,12 @@ class ProjectsController extends Controller
      */
     public function edit(Project $project)
     {
+<<<<<<< HEAD
         $project = Project::find($project->id);
         return view('projects.edit',['project'=>$project]);
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -99,6 +125,7 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+<<<<<<< HEAD
         
         $projectUpdate = Project::where('id', $project->id)
         ->update([
@@ -112,6 +139,9 @@ class ProjectsController extends Controller
                 ');
         }
         return back()->withInput();
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -122,6 +152,7 @@ class ProjectsController extends Controller
      */
     public function destroy(Project $project)
     {
+<<<<<<< HEAD
         $findProject = Project::find( $project->id);
         if($findProject->delete()){
             
@@ -130,5 +161,8 @@ class ProjectsController extends Controller
             ->with('success' , 'Project deleted successfully.');
         }
         return back()->withInput()->with('error' , 'Project could not be deleted');
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 }

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 pull-left">
             <div class="panel panel-primary">
@@ -23,4 +24,20 @@
             </div>
         </div>
     </div>
+=======
+<div class="container">
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Companies</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @foreach($companies as $company)
+                        <li class="list-group-item"><a href="/companies/{{$company->id}}">{{ $company->name }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
 @endsection

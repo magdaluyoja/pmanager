@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Company;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
+=======
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
 
 class CompaniesController extends Controller
 {
@@ -15,12 +18,20 @@ class CompaniesController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         if( Auth::check() ){
             //$companies = Company::all();//retrieve all rows in the Company table
             $companies = Company::where('user_id', Auth::user()->id)->get();
             return view('companies.index', ['companies'=>$companies]);
         }
         return view('auth.login');
+=======
+        $companies = Company::all();//retrieve all rows in the Company table
+
+        return view('companies.index', ['companies'=>$companies]);
+
+
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -30,7 +41,11 @@ class CompaniesController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('companies.create');
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -41,6 +56,7 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         if(Auth::check()){
             $company = Company::create([
                 'name' => $request->input('name'),
@@ -54,6 +70,9 @@ class CompaniesController extends Controller
         }
         
         return back()->withInput()->with('errors', 'Error creating new company');
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -89,6 +108,7 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, Company $company)
     {
+<<<<<<< HEAD
         
         $companyUpdate = Company::where('id', $company->id)
         ->update([
@@ -101,6 +121,9 @@ class CompaniesController extends Controller
                 ');;
         }
         return back()->withInput();
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
@@ -111,6 +134,7 @@ class CompaniesController extends Controller
      */
     public function destroy(Company $company)
     {
+<<<<<<< HEAD
         $findCompany = Company::find( $company->id);
         if($findCompany->delete()){
             
@@ -119,5 +143,8 @@ class CompaniesController extends Controller
             ->with('success' , 'Company deleted successfully.');
         }
         return back()->withInput()->with('error' , 'Company could not be deleted');
+=======
+        //
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 }

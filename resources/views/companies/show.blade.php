@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
+=======
+<div class="container">
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 pull-left">
             <!-- Jumbotron -->
@@ -24,6 +28,7 @@
         </div>
         <div class="col-lg-3 col-md-3 col-sm-3 pull-right">
             <div class="sidebar-module">
+<<<<<<< HEAD
                 <h4>Actions</h4>
                 <ol class="list-unstyled">
                     <li><a href="/companies/{{ $company->id}}/edit">Edit</a></li>
@@ -49,8 +54,20 @@
                     </li>
                     <li><a href="/projects/create/{{$company->id}}">Add Project</a></li>
                     <li><a href="/companies">All Companies</a></li>
+=======
+                <h4>Action</h4>
+                <ol class="list-unstyled">
+                    <li><a href="#">Add</a></li>
+                    <li><a href="/companies/{{ $company->id}}/edit">Edit</a></li>
+                    <li><a href="#">Delete</a></li>
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
                 </ol>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+</div>
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
 @endsection

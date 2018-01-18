@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 Route::middleware(['auth'])->group(function () {
 	
 	Route::resource('companies','CompaniesController');
@@ -31,3 +32,11 @@ Route::middleware(['auth'])->group(function () {
 	Route::resource('roles','RolesController');
 	Route::resource('comments','CommentsController');
 });
+=======
+Route::resource('companies','CompaniesController');
+Route::resource('projects','ProjectsController');
+Route::resource('tasks','TasksController');
+Route::resource('users','UsersController');
+Route::resource('roles','RolesController');
+Route::resource('comments','CommentsController');
+>>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
