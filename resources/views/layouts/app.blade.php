@@ -34,7 +34,6 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-<<<<<<< HEAD
                     <ul class="nav navbar-nav">
                         <li><a href="/companies">Companies</a></li>
                         <li><a href="/projects">Projects</a></li>
@@ -45,11 +44,6 @@
                                 <li><a href="#">Action</a></li>
                             </ul>
                         </li>
-=======
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
->>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -83,16 +77,11 @@
                 </div>
             </div>
         </nav>
-<<<<<<< HEAD
         <div class="container">
             @include('partials.errors')
             @include('partials.success')
             @yield('content')
         </div>
-=======
-
-        @yield('content')
->>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     </div>
 
     <!-- Scripts -->

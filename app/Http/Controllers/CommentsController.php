@@ -4,10 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
-=======
->>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
 
 class CommentsController extends Controller
 {
@@ -39,7 +36,6 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
         if(Auth::check()){
             $comment = Comment::create([
                 'body' => $request->input('body'),
@@ -55,9 +51,6 @@ class CommentsController extends Controller
         }
         
         return back()->withInput()->with('errors', 'Error posting new comment');
-=======
-        //
->>>>>>> e46cf0ed26bb36339887943a176b7ae32b91cf2d
     }
 
     /**
